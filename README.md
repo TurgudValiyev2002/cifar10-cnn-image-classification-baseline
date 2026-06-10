@@ -1,5 +1,10 @@
 # CIFAR-10-Style Image Classification Baseline
 
+![Project overview](assets/readme_project_overview.png)
+
+Figure: image-classification baseline comparing raw pixels with convolution-style features.
+
+
 ## Motivation
 
 Image classification baselines help us understand whether a model is learning useful visual patterns. Before training a large CNN, it is useful to compare simple pixel-based features with convolution-style features.
