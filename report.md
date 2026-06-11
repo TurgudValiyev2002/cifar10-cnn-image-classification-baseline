@@ -1,29 +1,25 @@
-# One-Page Report: CIFAR-10 Image Classification Baselines
+# One-Page Report: CIFAR-10 CNN Baseline
 
 ## Motivation
 
-Real CIFAR-10 is a useful baseline dataset because objects have varied backgrounds, colors, poses, and textures. This makes the task much harder than simple rule-based image patterns.
+We wanted a real computer vision baseline, not only linear models on pixels. CIFAR-10 is a useful test because object appearance varies strongly across images.
 
 ## Dataset
 
-We used the official CIFAR-10 Python dataset. The local experiment uses a balanced subset with 10,000 training images and 2,000 test images across 10 classes.
+We used the official CIFAR-10 Python archive with a balanced subset of 8,000 training images and 2,000 test images across 10 classes.
 
-## Methods
+## Method
 
-We compared a most-frequent dummy classifier, an SGD linear classifier on flattened pixels, and an SGD linear classifier on compact visual features. The compact features include color statistics, quadrant brightness, and simple edge strength.
-
-## Hyperparameters
-
-The raw-pixel linear model used logistic loss, standardization, `max_iter=80`, and random seed 42. The compact-feature linear model used the same setup with `max_iter=120`.
+We compared a most-frequent dummy classifier, an SGD linear classifier on flattened pixels, and a small PyTorch CNN. The CNN used three convolution blocks with batch normalization, ReLU, pooling, Adam optimization, learning rate 0.001, and 8 epochs.
 
 ## Results
 
-The dummy classifier achieved 0.1000 accuracy and 0.0182 macro F1. The raw-pixel linear classifier achieved 0.3610 accuracy and 0.3636 macro F1. The compact-feature classifier achieved 0.3130 accuracy and 0.2860 macro F1.
+The dummy classifier achieved 0.1000 accuracy. The raw-pixel linear model achieved 0.3480 accuracy and 0.3521 macro F1. The small CNN achieved 0.5255 accuracy and 0.5331 macro F1.
 
 ## Interpretation
 
-The result is realistic: simple linear models can learn some CIFAR-10 signal, but they are not strong enough for high-quality image classification.
+The CNN is clearly stronger because it learns local spatial filters. The result is realistic and not inflated: 52.55% accuracy is a reasonable small-CNN baseline, not a final CIFAR-10 result.
 
 ## Conclusion
 
-The project provides an honest real-data baseline. A small CNN should be the next model, and it should be compared against these baselines on the same subset.
+This project now matches its title. It gives a real CIFAR-10 CNN baseline and shows why convolution is useful for image classification.

@@ -1,4 +1,4 @@
-model,accuracy,macro_f1
-most_frequent_dummy,0.1,0.0182
-raw_pixel_sgd_linear,0.361,0.3636
-compact_feature_sgd_linear,0.313,0.286
+model,accuracy,macro_f1,test_loss,best_epoch
+most_frequent_dummy,0.1,0.0182,,
+raw_pixel_sgd_linear,0.348,0.3521,,
+small_cnn,0.5255,0.5331,1.3298,7.0

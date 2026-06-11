@@ -1,7 +1,9 @@
 setting,value
 dataset,CIFAR-10 official Python archive
-train_images,10000
+train_images,8000
 test_images,2000
 classes,10
-train_per_class,1000
+train_per_class,800
 test_per_class,200
+cnn_epochs,8
+cnn_optimizer,Adam lr=0.001 weight_decay=0.0001
