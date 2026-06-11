@@ -1,29 +1,29 @@
-# Report: CIFAR-10-Style Image Classification Baseline
+# One-Page Report: CIFAR-10 Image Classification Baselines
 
 ## Motivation
 
-We built an image-classification baseline to compare raw-pixel features with convolution-style features.
+We needed to replace the earlier synthetic image task because it produced unrealistic perfect accuracy. Real CIFAR-10 is a better test because objects have varied backgrounds, colors, poses, and textures.
 
 ## Dataset
 
-The dataset contains 1500 controlled 16x16 RGB images with 5 visual classes. It is not the real CIFAR-10 dataset.
+We used the official CIFAR-10 Python dataset. The local experiment uses a balanced subset with 10,000 training images and 2,000 test images across 10 classes.
 
-## Method
+## Methods
 
-We trained logistic regression on raw pixels and on hand-built convolution-style features.
+We compared a most-frequent dummy classifier, an SGD linear classifier on flattened pixels, and an SGD linear classifier on compact visual features. The compact features include color statistics, quadrant brightness, and simple edge strength.
 
 ## Hyperparameters
 
-The test split was 25 percent. Logistic regression used `max_iter=1000` and `random_state=42`.
+The raw-pixel linear model used logistic loss, standardization, `max_iter=80`, and random seed 42. The compact-feature linear model used the same setup with `max_iter=120`.
 
 ## Results
 
-Both models achieved 1.0000 accuracy and 1.0000 macro F1.
+The dummy classifier achieved 0.1000 accuracy and 0.0182 macro F1. The raw-pixel linear classifier achieved 0.3610 accuracy and 0.3636 macro F1. The compact-feature classifier achieved 0.3130 accuracy and 0.2860 macro F1.
 
 ## Interpretation
 
-The task is too simple for a serious model comparison. The result confirms that the pipeline works, but not that the model is strong on real CIFAR-10.
+The result is realistic: simple linear models can learn some CIFAR-10 signal, but they are not strong enough for high-quality image classification. The earlier perfect score happened because the previous synthetic dataset encoded labels with very obvious visual rules.
 
 ## Conclusion
 
-This is a clean baseline workflow. A future version should use real CIFAR-10 and a CNN.
+The project now provides an honest real-data baseline. A small CNN should be the next model, and it should be compared against these baselines on the same subset.

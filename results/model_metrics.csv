@@ -1,3 +1,4 @@
 model,accuracy,macro_f1
-pixel_logistic_regression,1.0,1.0
-cnn_style_feature_logistic_regression,1.0,1.0
+most_frequent_dummy,0.1,0.0182
+raw_pixel_sgd_linear,0.361,0.3636
+compact_feature_sgd_linear,0.313,0.286

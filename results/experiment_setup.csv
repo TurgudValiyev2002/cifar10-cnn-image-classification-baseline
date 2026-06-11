@@ -1,0 +1,7 @@
+setting,value
+dataset,CIFAR-10 official Python archive
+train_images,10000
+test_images,2000
+classes,10
+train_per_class,1000
+test_per_class,200
