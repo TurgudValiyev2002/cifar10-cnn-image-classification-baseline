@@ -2,7 +2,7 @@
 
 ## Motivation
 
-We needed to replace the earlier synthetic image task because it produced unrealistic perfect accuracy. Real CIFAR-10 is a better test because objects have varied backgrounds, colors, poses, and textures.
+Real CIFAR-10 is a useful baseline dataset because objects have varied backgrounds, colors, poses, and textures. This makes the task much harder than simple rule-based image patterns.
 
 ## Dataset
 
@@ -22,8 +22,8 @@ The dummy classifier achieved 0.1000 accuracy and 0.0182 macro F1. The raw-pixel
 
 ## Interpretation
 
-The result is realistic: simple linear models can learn some CIFAR-10 signal, but they are not strong enough for high-quality image classification. The earlier perfect score happened because the previous synthetic dataset encoded labels with very obvious visual rules.
+The result is realistic: simple linear models can learn some CIFAR-10 signal, but they are not strong enough for high-quality image classification.
 
 ## Conclusion
 
-The project now provides an honest real-data baseline. A small CNN should be the next model, and it should be compared against these baselines on the same subset.
+The project provides an honest real-data baseline. A small CNN should be the next model, and it should be compared against these baselines on the same subset.
